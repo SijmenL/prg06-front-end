@@ -1,25 +1,29 @@
-import logo from './logo.svg';
+// App.js
 import './App.css';
+import * as React from 'react';
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Home from './routes/Home';
+import Boats from './routes/Boats';
+import Layout from './routes/Layouts';
+import NoPage from './routes/NoPage';
+import BoatDetail from "./routes/BoatDetail";
+
+export default function App() {
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Layout />}>
+                    <Route index element={<Home />} />
+                    <Route path="boats" element={<Boats />} />
+                    <Route path="boats/:id" element={<BoatDetail />} />
+                    <Route path="*" element={<NoPage />} />
+                </Route>
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
-export default App;
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
