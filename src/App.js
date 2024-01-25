@@ -9,6 +9,7 @@ import Boats from './routes/Boats';
 import Layout from './routes/Layouts';
 import NoPage from './routes/NoPage';
 import BoatDetail from "./routes/BoatDetail";
+import BoatEditForm from "./routes/BoatEdit";
 
 export default function App() {
     return (
@@ -17,7 +18,9 @@ export default function App() {
                 <Route path="/" element={<Layout />}>
                     <Route index element={<Home />} />
                     <Route path="boats" element={<Boats />} />
+                    <Route path="boats/create" element={<Boats />} />
                     <Route path="boats/:id" element={<BoatDetail />} />
+                    <Route path="/boats/:id/edit" element={<BoatEditForm />} />
                     <Route path="*" element={<NoPage />} />
                 </Route>
             </Routes>

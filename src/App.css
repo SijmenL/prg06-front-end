@@ -3,3 +3,11 @@
   background-color: #fffbf7;
 }
 
+.no-scrolbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrolbar {
+  ms-overflow-style: none;
+  scrollbar-width: none;
+}
